@@ -152,7 +152,7 @@ Extensive experiments on seven benchmarks demonstrate CogCM's superiority, achie
   }
   .video-section video {
     width: 100%;       /* 宽度随容器自适应 */
-    max-height: 180px; /* << 如果想让视频高度更小，可改此值 */
+    max-height: 160px; /* << 如果想让视频高度更小，可改此值 */
     object-fit: cover; 
     display: block;    /* 避免行内元素缝隙 */
   }
@@ -169,7 +169,7 @@ Extensive experiments on seven benchmarks demonstrate CogCM's superiority, achie
   */
   .pairs-container {
     display: flex;
-    gap: 20px; /* << 调整三组图片/音频之间的间距，如果想更紧凑可改小点 */
+    gap: 10px; /* << 调整三组图片/音频之间的间距，如果想更紧凑可改小点 */
     flex-wrap: wrap; /* 宽度不足自动换行，避免布局溢出 */
     margin: 0;
     padding: 0;
@@ -195,7 +195,7 @@ Extensive experiments on seven benchmarks demonstrate CogCM's superiority, achie
   */
   .pair-item img {
     width: 100%;
-    max-width: 300px; /* 与视频保持一致，易于对齐 */
+    max-width: 240px; /* 与视频保持一致，易于对齐 */
     height: auto;
     object-fit: cover;
     display: block; /* 避免行内元素缝隙 */
@@ -249,9 +249,16 @@ Extensive experiments on seven benchmarks demonstrate CogCM's superiority, achie
             </audio>
             <p>Noisy Speech</p>
           </div>
-          
           <div class="pair-item">
-            <img src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_BMVC_enhanced_spec.png" alt="Spec 2">
+            <img src="static/examples/4O2JKS94g3Y_00006_clean_spec.png" alt="Spec 2">
+            <audio controls>
+              <source src="static/examples/4O2JKS94g3Y_00006_clean_audio.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Clean Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_BMVC_enhanced_spec.png" alt="Spec 3">
             <audio controls>
               <source src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_BMVC_enhanced_audio.wav" type="audio/wav">
               Your browser does not support the audio element.
@@ -260,7 +267,7 @@ Extensive experiments on seven benchmarks demonstrate CogCM's superiority, achie
           </div>
           
           <div class="pair-item">
-            <img src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_CogCM_enhanced_spec.png" alt="Spec 3">
+            <img src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_CogCM_enhanced_spec.png" alt="Spec 4">
             <audio controls>
               <source src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_CogCM_enhanced_audio.wav" type="audio/wav">
               Your browser does not support the audio element.
@@ -274,623 +281,104 @@ Extensive experiments on seven benchmarks demonstrate CogCM's superiority, achie
     </h2>
     <div class="item">
       <!-- 左侧：视频部分 -->
-      <div class="video-section">
-        <video controls>
-          <source src="static/videos/3UaOl8SYHes_00021.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p>Noisy Video</p>
-      </div>
-
-      <!-- 右侧：三对“图片 + 音频”水平排列 -->
-      <div class="pairs-container">
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 1">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>Noisy Speech</p>
+        <div class="video-section">
+          <video controls>
+            <source src="static/examples/1VRgmKiE0Js_00027_snr_-15dB_noisy_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Noisy Video</p>
         </div>
-        
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 2">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>DualAVSE</p>
-        </div>
-        
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 3">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>CogCM</p>
-        </div>
-      </div>
-    </div>
-    <h2 class="title is-4 has-text-centered">
-      Sample 3
-    </h2>
-    <div class="item">
-    <!-- 左侧：视频部分 -->
-    <div class="video-section">
-      <video controls>
-        <source src="static/videos/3UaOl8SYHes_00021.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <p>Noisy Video</p>
-    </div>
-
-    <!-- 右侧：三对“图片 + 音频”水平排列 -->
-    <div class="pairs-container">
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 1">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>Noisy Speech</p>
-      </div>
-      
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 2">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>DualAVSE</p>
-      </div>
-      
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 3">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>CogCM</p>
-      </div>
-    </div>
-    </div>
-</div>
-
-<div>
-  <h2 class="title is-3 has-text-centered">DATASET: GRID + CHiME3</h2>
-    <h2 class="title is-4 has-text-centered">
-      Sample 1
-    </h2>
-    <div class="item">
-    <!-- 左侧：视频部分 -->
-      <div class="video-section">
-        <video controls>
-          <source src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_noisy_video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p>Noisy Video</p>
-      </div>
-  
-      <!-- 右侧：三对“图片 + 音频”水平排列 -->
-      <div class="pairs-container">
-        <div class="pair-item">
-          <img src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_noisy_spec.png" alt="Spec 1">
-          <audio controls>
-            <source src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_noisy_audio.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>Noisy Speech</p>
-        </div>
-        
-        <div class="pair-item">
-          <img src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_BMVC_enhanced_spec.png" alt="Spec 2">
-          <audio controls>
-            <source src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_BMVC_enhanced_audio.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>DualAVSE</p>
-        </div>
-        
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 3">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>CogCM</p>
-        </div>
-      </div>
-    </div>
-    <h2 class="title is-4 has-text-centered">
-      Sample 2
-    </h2>
-    <div class="item">
-      <!-- 左侧：视频部分 -->
-      <div class="video-section">
-        <video controls>
-          <source src="static/videos/3UaOl8SYHes_00021.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p>Noisy Video</p>
-      </div>
-  
-      <!-- 右侧：三对“图片 + 音频”水平排列 -->
-      <div class="pairs-container">
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 1">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>Noisy Speech</p>
-        </div>
-        
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 2">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>DualAVSE</p>
-        </div>
-        
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 3">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>CogCM</p>
-        </div>
-      </div>
-    </div>
-    <h2 class="title is-4 has-text-centered">
-      Sample 3
-    </h2>
-    <div class="item">
-    <!-- 左侧：视频部分 -->
-    <div class="video-section">
-      <video controls>
-        <source src="static/videos/3UaOl8SYHes_00021.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <p>Noisy Video</p>
-    </div>
-  
-    <!-- 右侧：三对“图片 + 音频”水平排列 -->
-    <div class="pairs-container">
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 1">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>Noisy Speech</p>
-      </div>
-      
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 2">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>DualAVSE</p>
-      </div>
-      
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 3">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>CogCM</p>
-      </div>
-    </div>
-    </div>
-  </div>
-
-  <div>
-<h2 class="title is-3 has-text-centered">DATASET: MEAD + Demand</h2>
-
-
-  <h2 class="title is-4 has-text-centered">
-    Sample 1
-  </h2>
-  <div class="item">
-  <!-- 左侧：视频部分 -->
-    <div class="video-section">
-      <video controls>
-        <source src="static/videos/3UaOl8SYHes_00021.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <p>Noisy Video</p>
-    </div>
-
-    <!-- 右侧：三对“图片 + 音频”水平排列 -->
-    <div class="pairs-container">
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 1">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>Noisy Speech</p>
-      </div>
-      
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 2">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>DualAVSE</p>
-      </div>
-      
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 3">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>CogCM</p>
-      </div>
-    </div>
-  </div>
-  <h2 class="title is-4 has-text-centered">
-    Sample 2
-  </h2>
-  <div class="item">
-    <!-- 左侧：视频部分 -->
-    <div class="video-section">
-      <video controls>
-        <source src="static/videos/3UaOl8SYHes_00021.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <p>Noisy Video</p>
-    </div>
-
-    <!-- 右侧：三对“图片 + 音频”水平排列 -->
-    <div class="pairs-container">
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 1">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>Noisy Speech</p>
-      </div>
-      
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 2">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>DualAVSE</p>
-      </div>
-      
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 3">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>CogCM</p>
-      </div>
-    </div>
-  </div>
-  <h2 class="title is-4 has-text-centered">
-    Sample 3
-  </h2>
-  <div class="item">
-  <!-- 左侧：视频部分 -->
-  <div class="video-section">
-    <video controls>
-      <source src="static/videos/3UaOl8SYHes_00021.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <p>Noisy Video</p>
-  </div>
-
-  <!-- 右侧：三对“图片 + 音频”水平排列 -->
-  <div class="pairs-container">
-    <div class="pair-item">
-      <img src="static/examples/sample_spec.png" alt="Spec 1">
-      <audio controls>
-        <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-        Your browser does not support the audio element.
-      </audio>
-      <p>Noisy Speech</p>
-    </div>
     
-    <div class="pair-item">
-      <img src="static/examples/sample_spec.png" alt="Spec 2">
-      <audio controls>
-        <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-        Your browser does not support the audio element.
-      </audio>
-      <p>DualAVSE</p>
-    </div>
+        <!-- 右侧：三对“图片 + 音频”水平排列 -->
+        <div class="pairs-container">
+          <div class="pair-item">
+            <img src="static/examples/1VRgmKiE0Js_00027_snr_-15dB_noisy_spec.png" alt="Spec 1">
+            <audio controls>
+              <source src="static/examples/1VRgmKiE0Js_00027_snr_-15dB_noisy_audio.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Noisy Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/1VRgmKiE0Js_00027_clean_spec.png" alt="Spec 2">
+            <audio controls>
+              <source src="static/examples/1VRgmKiE0Js_00027_clean_audio.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Clean Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/1VRgmKiE0Js_00027_snr_-15dB_BMVC_enhanced_spec.png" alt="Spec 3">
+            <audio controls>
+              <source src="static/examples/1VRgmKiE0Js_00027_snr_-15dB_BMVC_enhanced_audio.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>DualAVSE</p>
+          </div>
+          
+          <div class="pair-item">
+            <img src="static/examples/1VRgmKiE0Js_00027_snr_-15dB_CogCM_enhanced_spec.png" alt="Spec 4">
+            <audio controls>
+              <source src="static/examples/1VRgmKiE0Js_00027_snr_-15dB_CogCM_enhanced_audio.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>CogCM</p>
+          </div>
+        </div>
+      </div>
+    <h2 class="title is-4 has-text-centered">
+      Sample 3
+    </h2>
+    <div class="item">
+      <!-- 左侧：视频部分 -->
+        <div class="video-section">
+          <video controls>
+            <source src="static/examples/AQcUeQsljSs_00007_snr_-15dB_noisy_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Noisy Video</p>
+        </div>
     
-    <div class="pair-item">
-      <img src="static/examples/sample_spec.png" alt="Spec 3">
-      <audio controls>
-        <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-        Your browser does not support the audio element.
-      </audio>
-      <p>CogCM</p>
-    </div>
-  </div>
-  </div>
+        <!-- 右侧：三对“图片 + 音频”水平排列 -->
+        <div class="pairs-container">
+          <div class="pair-item">
+            <img src="static/examples/AQcUeQsljSs_00007_snr_-15dB_noisy_spec.png" alt="Spec 1">
+            <audio controls>
+              <source src="static/examples/AQcUeQsljSs_00007_snr_-15dB_noisy_audio.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Noisy Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/AQcUeQsljSs_00007_clean_spec.png" alt="Spec 2">
+            <audio controls>
+              <source src="static/examples/AQcUeQsljSs_00007_clean_audio.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Clean Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/AQcUeQsljSs_00007_snr_-15dB_BMVC_enhanced_spec.png" alt="Spec 3">
+            <audio controls>
+              <source src="static/examples/AQcUeQsljSs_00007_snr_-15dB_BMVC_enhanced_audio.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>DualAVSE</p>
+          </div>
+          
+          <div class="pair-item">
+            <img src="static/examples/AQcUeQsljSs_00007_snr_-15dB_CogCM_enhanced_spec.png" alt="Spec 4">
+            <audio controls>
+              <source src="static/examples/AQcUeQsljSs_00007_snr_-15dB_CogCM_enhanced_audio.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>CogCM</p>
+          </div>
+        </div>
+      </div>
 </div>
 
-<div>
-  <h2 class="title is-3 has-text-centered">DATASET: GRID + CHiME3</h2>
-    <h2 class="title is-4 has-text-centered">
-      Sample 1
-    </h2>
-    <div class="item">
-    <!-- 左侧：视频部分 -->
-      <div class="video-section">
-        <video controls>
-          <source src="static/videos/3UaOl8SYHes_00021.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p>Noisy Video</p>
-      </div>
-  
-      <!-- 右侧：三对“图片 + 音频”水平排列 -->
-      <div class="pairs-container">
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 1">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>Noisy Speech</p>
-        </div>
-        
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 2">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>DualAVSE</p>
-        </div>
-        
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 3">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>CogCM</p>
-        </div>
-      </div>
-    </div>
-    <h2 class="title is-4 has-text-centered">
-      Sample 2
-    </h2>
-    <div class="item">
-      <!-- 左侧：视频部分 -->
-      <div class="video-section">
-        <video controls>
-          <source src="static/videos/3UaOl8SYHes_00021.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p>Noisy Video</p>
-      </div>
-  
-      <!-- 右侧：三对“图片 + 音频”水平排列 -->
-      <div class="pairs-container">
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 1">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>Noisy Speech</p>
-        </div>
-        
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 2">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>DualAVSE</p>
-        </div>
-        
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 3">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>CogCM</p>
-        </div>
-      </div>
-    </div>
-    <h2 class="title is-4 has-text-centered">
-      Sample 3
-    </h2>
-    <div class="item">
-    <!-- 左侧：视频部分 -->
-    <div class="video-section">
-      <video controls>
-        <source src="static/videos/3UaOl8SYHes_00021.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <p>Noisy Video</p>
-    </div>
-  
-    <!-- 右侧：三对“图片 + 音频”水平排列 -->
-    <div class="pairs-container">
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 1">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>Noisy Speech</p>
-      </div>
-      
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 2">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>DualAVSE</p>
-      </div>
-      
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 3">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>CogCM</p>
-      </div>
-    </div>
-    </div>
-</div>
-  
-<div>
-  <h2 class="title is-3 has-text-centered">DATASET: TCD-TIMIE + NTCD-TIMIT</h2>
-    <h2 class="title is-4 has-text-centered">
-      Sample 1
-    </h2>
-    <div class="item">
-    <!-- 左侧：视频部分 -->
-      <div class="video-section">
-        <video controls>
-          <source src="static/videos/3UaOl8SYHes_00021.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p>Noisy Video</p>
-      </div>
-  
-      <!-- 右侧：三对“图片 + 音频”水平排列 -->
-      <div class="pairs-container">
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 1">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>Noisy Speech</p>
-        </div>
-        
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 2">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>DualAVSE</p>
-        </div>
-        
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 3">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>CogCM</p>
-        </div>
-      </div>
-    </div>
-    <h2 class="title is-4 has-text-centered">
-      Sample 2
-    </h2>
-    <div class="item">
-      <!-- 左侧：视频部分 -->
-      <div class="video-section">
-        <video controls>
-          <source src="static/videos/3UaOl8SYHes_00021.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p>Noisy Video</p>
-      </div>
-  
-      <!-- 右侧：三对“图片 + 音频”水平排列 -->
-      <div class="pairs-container">
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 1">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>Noisy Speech</p>
-        </div>
-        
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 2">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>DualAVSE</p>
-        </div>
-        
-        <div class="pair-item">
-          <img src="static/examples/sample_spec.png" alt="Spec 3">
-          <audio controls>
-            <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-            Your browser does not support the audio element.
-          </audio>
-          <p>CogCM</p>
-        </div>
-      </div>
-    </div>
-    <h2 class="title is-4 has-text-centered">
-      Sample 3
-    </h2>
-    <div class="item">
-    <!-- 左侧：视频部分 -->
-    <div class="video-section">
-      <video controls>
-        <source src="static/videos/3UaOl8SYHes_00021.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <p>Noisy Video</p>
-    </div>
-  
-    <!-- 右侧：三对“图片 + 音频”水平排列 -->
-    <div class="pairs-container">
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 1">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>Noisy Speech</p>
-      </div>
-      
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 2">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>DualAVSE</p>
-      </div>
-      
-      <div class="pair-item">
-        <img src="static/examples/sample_spec.png" alt="Spec 3">
-        <audio controls>
-          <source src="static/examples/4AUSqB0RVNY_00040.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-        <p>CogCM</p>
-      </div>
-    </div>
-    </div>
-</div>
-  
+
 <!-- Footer 保留原始示例 -->
 <footer class="footer">
   <div class="container">
@@ -907,11 +395,6 @@ Extensive experiments on seven benchmarks demonstrate CogCM's superiority, achie
     </div>
   </div>
 </footer>
-
-<!-- 如果有需要可添加统计代码 -->
-<!-- <script>
-  // Tracking scripts
-</script> -->
 
 </body>
 </html>
