@@ -91,8 +91,6 @@
 </section>
 <!-- End of title/author block -->
 
-
-<!-- 保留的 Abstract 部分（含 Bulma 原始格式） -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -102,17 +100,16 @@
           <!-- 在此处添加/修改摘要内容 -->
           <!-- ================================ -->
           <p>
-            Audio-Visual Speech Enhancement (AVSE) aims to improve speech quality by jointly analyzing synchronized audio and visual cues.
-Humans can perceive and understand the corrupted parts within a speech as clearly in real-world noisy environments.
-From cognitive science, we derive four key insights: 
-(1) the phonemic restoration phenomenon indicates that visual cues and semantic context collaboratively compensate for missing speech components; 
-(2) the McGurk effect reveals a strong coupling between visual information and semantic context, suggesting that semantic cues can be extracted from the visual modality;
-(3) The human brain can associate visual appearance with vocal characteristics, indicating that visual cues offer crucial priors for frequency-domain signal modeling; and
-(4) in human speech processing, high-level semantic centers and low-level auditory centers respond simultaneously, implying that semantic knowledge can guide signal-level context modeling.
-Motivated by these insights, we propose CogCM, a cognition-inspired hierarchical contextual modeling framework that leverages high-level semantic information to guide lower-level signal context modeling, thereby recovering corrupted regions more effectively.
-Specifically, we design (1) a semantic context modeling module to capture semantic context from audio-visual modalities; (2) a signal context modeling module to model fine-grained temporal-spectral structures under semantic guidance; and (3) a semantic-to-signal guidance module to leverage semantic context in guiding signal context modeling across both temporal and frequency dimensions.
-Crucially, we reveal that visual appearance (e.g., gender and body shape)—while strongly correlated with semantic cues—also offers crucial priors for frequency-domain signal modeling, thereby bridging high-level semantic guidance with fine-grained spectral reconstruction, an aspect overlooked by approaches focusing predominantly on temporal alignment.
-Extensive experiments on seven benchmarks demonstrate CogCM's superiority, achieving 63.6% SDR and 58.1% PESQ improvements at -15dB SNR -- outperforming state-of-the-art methods across all metrics. 
+            Audio-Visual Speech Enhancement (AVSE) leverages both audio and visual information to improve speech quality.
+            Despite noisy real-world conditions, humans effortlessly perceive and interpret corrupted speech segments. Cognitive science shows how the brain merges auditory and visual inputs to achieve this.
+            From cognitive studies, we derive four key insights, reflecting a hierarchical synergy of visual, semantic, and signal processes:
+            (1) Visual and semantic cues work together to compensate for missing speech signals.
+            (2) Visual input is tightly coupled with semantic context, enabling direct extraction of meaning from visual cues.
+            (3) Visual appearance provides critical information for modeling lower-level signal features.
+            (4) High-level semantic knowledge and low-level auditory processing operate concurrently, allowing semantics to guide signal-level context modeling.
+            Motivated by these insights, we propose CogCM, a cognition-inspired hierarchical contextual modeling framework that leverages high-level semantic information to guide lower-level signal context modeling, thereby recovering corrupted regions more effectively.
+            The CogCM framework includes three core modules: (1) a semantic context modeling module to capture semantic context from audio-visual modalities; (2) a signal context modeling module to model fine-grained temporal-spectral structures under semantic guidance; and (3) a semantic-to-signal guidance module to leverage semantic context in guiding signal context modeling across both temporal and frequency dimensions.
+            Extensive experiments on seven benchmarks demonstrate CogCM's superiority, achieving 63.6% SDR and 58.1% PESQ improvements at -15dB SNR -- outperforming state-of-the-art methods across all metrics.
           </p>
         </div>
       </div>
