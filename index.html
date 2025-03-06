@@ -43,6 +43,23 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const mediaElements = document.querySelectorAll("audio, video");
+  
+      mediaElements.forEach((element) => {
+        element.addEventListener("play", function () {
+          mediaElements.forEach((el) => {
+            if (el !== element) {
+              el.pause();
+            }
+          });
+        });
+      });
+    });
+  </script>
+  
 </head>
 
 <body>
@@ -128,7 +145,7 @@
   */
   .item {
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
     gap: 20px; /* << 这里可以调节左边视频与右边三张图/音频的“横向间距” */
     margin: 0 auto; /* 将左右外边距设为auto，前提是要有一个固定宽度或max-width */
     max-width: 1200px;
@@ -145,11 +162,11 @@
   */
   .video-section {
     text-align: center;
-    max-width: 250px; /* << 限制视频容器最大宽度 */
+    max-width: 800px; /* << 限制视频容器最大宽度 */
   }
   .video-section video {
     width: 100%;       /* 宽度随容器自适应 */
-    max-height: 160px; /* << 如果想让视频高度更小，可改此值 */
+    max-height: 800px; /* << 如果想让视频高度更小，可改此值 */
     object-fit: cover; 
     display: block;    /* 避免行内元素缝隙 */
   }
@@ -237,39 +254,58 @@
         </div>
     
         <!-- 右侧：三对“图片 + 音频”水平排列 -->
-        <div class="pairs-container">
-          <div class="pair-item">
-            <img src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_noisy_spec.png" alt="Spec 1">
-            <audio controls>
-              <source src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_noisy_audio.wav" type="audio/wav">
-              Your browser does not support the audio element.
-            </audio>
-            <p>Noisy Speech</p>
+        <div>
+          <div class="pairs-container">
+            <div class="pair-item">
+              <img src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_noisy_spec.png" alt="Spec 1">
+              <audio controls>
+                <source src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_noisy_audio.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+              <p>Noisy Speech</p>
+            </div>
+            <div class="pair-item">
+              <img src="static/examples/4O2JKS94g3Y_00006_clean_spec.png" alt="Spec 2">
+              <audio controls>
+                <source src="static/examples/4O2JKS94g3Y_00006_clean_audio.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+              <p>Clean Speech</p>
+            </div>
+            <div class="pair-item">
+              <img src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_MuSE_enhanced_spec.png" alt="Spec 3">
+              <audio controls>
+                <source src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_MuSE_enhanced_audio.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+              <p>MuSE</p>
+            </div>
           </div>
-          <div class="pair-item">
-            <img src="static/examples/4O2JKS94g3Y_00006_clean_spec.png" alt="Spec 2">
-            <audio controls>
-              <source src="static/examples/4O2JKS94g3Y_00006_clean_audio.wav" type="audio/wav">
-              Your browser does not support the audio element.
-            </audio>
-            <p>Clean Speech</p>
-          </div>
-          <div class="pair-item">
-            <img src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_BMVC_enhanced_spec.png" alt="Spec 3">
-            <audio controls>
-              <source src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_BMVC_enhanced_audio.wav" type="audio/wav">
-              Your browser does not support the audio element.
-            </audio>
-            <p>DualAVSE</p>
-          </div>
-          
-          <div class="pair-item">
-            <img src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_CogCM_enhanced_spec.png" alt="Spec 4">
-            <audio controls>
-              <source src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_CogCM_enhanced_audio.wav" type="audio/wav">
-              Your browser does not support the audio element.
-            </audio>
-            <p>CogCM</p>
+          <div class="pairs-container">
+            <div class="pair-item">
+              <img src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_VisualVoice_enhanced_spec.png" alt="Spec 3">
+              <audio controls>
+                <source src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_VisualVoice_enhanced_audio.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+              <p>VisualVoice</p>
+            </div>
+            <div class="pair-item">
+              <img src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_BMVC_enhanced_spec.png" alt="Spec 3">
+              <audio controls>
+                <source src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_BMVC_enhanced_audio.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+              <p>DualAVSE</p>
+            </div>
+            <div class="pair-item">
+              <img src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_CogCM_enhanced_spec.png" alt="Spec 4">
+              <audio controls>
+                <source src="static/examples/4O2JKS94g3Y_00006_snr_-15dB_CogCM_enhanced_audio.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+              <p>CogCM</p>
+            </div>
           </div>
         </div>
       </div>
@@ -287,6 +323,7 @@
         </div>
     
         <!-- 右侧：三对“图片 + 音频”水平排列 -->
+        <div>
         <div class="pairs-container">
           <div class="pair-item">
             <img src="static/examples/1VRgmKiE0Js_00027_snr_-15dB_noisy_spec.png" alt="Spec 1">
@@ -303,6 +340,26 @@
               Your browser does not support the audio element.
             </audio>
             <p>Clean Speech</p>
+          </div>
+
+          <div class="pair-item">
+            <img src="static/examples/1VRgmKiE0Js_00027_snr_-15dB_MuSE_enhanced_spec.png" alt="Spec 3">
+            <audio controls>
+              <source src="static/examples/1VRgmKiE0Js_00027_snr_-15dB_MuSE_enhanced_audio.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>MuSE</p>
+          </div>
+        </div>
+
+        <div class="pairs-container">
+          <div class="pair-item">
+            <img src="static/examples/1VRgmKiE0Js_00027_snr_-15dB_VisualVoice_enhanced_spec.png" alt="Spec 3">
+            <audio controls>
+              <source src="static/examples/1VRgmKiE0Js_00027_snr_-15dB_VisualVoice_enhanced_audio.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>VisualVoice</p>
           </div>
           <div class="pair-item">
             <img src="static/examples/1VRgmKiE0Js_00027_snr_-15dB_BMVC_enhanced_spec.png" alt="Spec 3">
@@ -323,6 +380,8 @@
           </div>
         </div>
       </div>
+    </div>
+    
     <h2 class="title is-4 has-text-centered">
       Sample 3
     </h2>
@@ -335,41 +394,59 @@
           </video>
           <p>Noisy Video</p>
         </div>
-    
+        <div>
         <!-- 右侧：三对“图片 + 音频”水平排列 -->
-        <div class="pairs-container">
-          <div class="pair-item">
-            <img src="static/examples/AQcUeQsljSs_00007_snr_-15dB_noisy_spec.png" alt="Spec 1">
-            <audio controls>
-              <source src="static/examples/AQcUeQsljSs_00007_snr_-15dB_noisy_audio.wav" type="audio/wav">
-              Your browser does not support the audio element.
-            </audio>
-            <p>Noisy Speech</p>
+          <div class="pairs-container">
+            <div class="pair-item">
+              <img src="static/examples/AQcUeQsljSs_00007_snr_-15dB_noisy_spec.png" alt="Spec 1">
+              <audio controls>
+                <source src="static/examples/AQcUeQsljSs_00007_snr_-15dB_noisy_audio.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+              <p>Noisy Speech</p>
+            </div>
+            <div class="pair-item">
+              <img src="static/examples/AQcUeQsljSs_00007_clean_spec.png" alt="Spec 2">
+              <audio controls>
+                <source src="static/examples/AQcUeQsljSs_00007_clean_audio.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+              <p>Clean Speech</p>
+            </div>
+            <div class="pair-item">
+              <img src="static/examples/AQcUeQsljSs_00007_snr_-15dB_MuSE_enhanced_spec.png" alt="Spec 3">
+              <audio controls>
+                <source src="static/examples/AQcUeQsljSs_00007_snr_-15dB_MuSE_enhanced_audio.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+              <p>MuSE</p>
+            </div>
           </div>
-          <div class="pair-item">
-            <img src="static/examples/AQcUeQsljSs_00007_clean_spec.png" alt="Spec 2">
-            <audio controls>
-              <source src="static/examples/AQcUeQsljSs_00007_clean_audio.wav" type="audio/wav">
-              Your browser does not support the audio element.
-            </audio>
-            <p>Clean Speech</p>
-          </div>
-          <div class="pair-item">
-            <img src="static/examples/AQcUeQsljSs_00007_snr_-15dB_BMVC_enhanced_spec.png" alt="Spec 3">
-            <audio controls>
-              <source src="static/examples/AQcUeQsljSs_00007_snr_-15dB_BMVC_enhanced_audio.wav" type="audio/wav">
-              Your browser does not support the audio element.
-            </audio>
-            <p>DualAVSE</p>
-          </div>
-          
-          <div class="pair-item">
-            <img src="static/examples/AQcUeQsljSs_00007_snr_-15dB_CogCM_enhanced_spec.png" alt="Spec 4">
-            <audio controls>
-              <source src="static/examples/AQcUeQsljSs_00007_snr_-15dB_CogCM_enhanced_audio.wav" type="audio/wav">
-              Your browser does not support the audio element.
-            </audio>
-            <p>CogCM</p>
+          <div class="pairs-container">
+            <div class="pair-item">
+              <img src="static/examples/AQcUeQsljSs_00007_snr_-15dB_VisualVoice_enhanced_spec.png" alt="Spec 3">
+              <audio controls>
+                <source src="static/examples/AQcUeQsljSs_00007_snr_-15dB_VisualVoice_enhanced_audio.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+              <p>VisualVoice</p>
+            </div>
+            <div class="pair-item">
+              <img src="static/examples/AQcUeQsljSs_00007_snr_-15dB_BMVC_enhanced_spec.png" alt="Spec 3">
+              <audio controls>
+                <source src="static/examples/AQcUeQsljSs_00007_snr_-15dB_BMVC_enhanced_audio.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+              <p>DualAVSE</p>
+            </div>
+            <div class="pair-item">
+              <img src="static/examples/AQcUeQsljSs_00007_snr_-15dB_CogCM_enhanced_spec.png" alt="Spec 4">
+              <audio controls>
+                <source src="static/examples/AQcUeQsljSs_00007_snr_-15dB_CogCM_enhanced_audio.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+              <p>CogCM</p>
+            </div>
           </div>
         </div>
       </div>
