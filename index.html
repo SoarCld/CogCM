@@ -118,15 +118,16 @@
           <!-- ================================ -->
           <p>
             Audio-Visual Speech Enhancement (AVSE) leverages both audio and visual information to improve speech quality.
-            Despite noisy real-world conditions, humans effortlessly perceive and interpret corrupted speech segments. Cognitive science shows how the brain merges auditory and visual inputs to achieve this.
-            From cognitive studies, we derive four key insights, reflecting a hierarchical synergy of visual, semantic, and signal processes:
-            (1) Visual and semantic cues work together to compensate for missing speech signals.
-            (2) Visual input is tightly coupled with semantic context, enabling direct extraction of meaning from visual cues.
-            (3) Visual appearance provides critical information for modeling lower-level signal features.
-            (4) High-level semantic knowledge and low-level auditory processing operate concurrently, allowing semantics to guide signal-level context modeling.
-            Motivated by these insights, we propose CogCM, a cognition-inspired hierarchical contextual modeling framework that leverages high-level semantic information to guide lower-level signal context modeling, thereby recovering corrupted regions more effectively.
-            The CogCM framework includes three core modules: (1) a semantic context modeling module to capture semantic context from audio-visual modalities; (2) a signal context modeling module to model fine-grained temporal-spectral structures under semantic guidance; and (3) a semantic-to-signal guidance module to leverage semantic context in guiding signal context modeling across both temporal and frequency dimensions.
-            Extensive experiments on seven benchmarks demonstrate CogCM's superiority, achieving 63.6% SDR and 58.1% PESQ improvements at -15dB SNR -- outperforming state-of-the-art methods across all metrics.
+            Despite noisy real-world conditions, humans are generally able to perceive and interpret corrupted speech segments. 
+            Researches in cognitive science have shown how the brain merges auditory and visual inputs to achieve this.
+            These studies uncover four key insights, reflecting a hierarchical synergy of semantic and signal processes with visual cues enriching both levels:
+            (1) Humans utilize high-level semantic context to reconstruct corrupted speech signals.
+            (2) Visual cues have been proven to strongly correlate with semantic information, enabling visual cues to facilitate semantic context modeling.
+            (3) Visual appearance and vocal information jointly benefit identification, implying that visual cues strengthen low-level signal context modeling.
+            (4) High-level semantic knowledge and low-level auditory processing operate concurrently, allowing the semantics to guide signal-level context modeling.
+            Motivated by these insights, we propose CogCM, a cognition-inspired hierarchical contextual modeling framework. 
+            The CogCM framework includes three core modules: (1) A semantic context modeling module (SeCM) to capture high-level semantic context from audio-visual modalities; (2) A signal context modeling module (SiCM) to model fine-grained temporal-spectral structures under multi-modal semantic context guidance; (3) A semantic-to-signal guidance module (SSGM) to leverage semantic context in guiding signal context modeling across both temporal and frequency dimensions.
+            Extensive experiments on 7 benchmarks demonstrate CogCM's superiority, achieving 63.6% SDR and 58.1% PESQ improvements at -15dB SNR -- outperforming state-of-the-art methods across all metrics.
           </p>
         </div>
       </div>
@@ -148,7 +149,7 @@
     align-items: flex-end;
     gap: 20px; /* << 这里可以调节左边视频与右边三张图/音频的“横向间距” */
     margin: 0 auto; /* 将左右外边距设为auto，前提是要有一个固定宽度或max-width */
-    max-width: 1200px;
+    max-width: 1500px;
     padding: 0;
     flex-wrap: wrap; /* 当屏幕过窄时，让元素自动换行 */
     justify-content: center; /* 让内部元素居中 */
@@ -162,11 +163,11 @@
   */
   .video-section {
     text-align: center;
-    max-width: 800px; /* << 限制视频容器最大宽度 */
+    max-width: 200px; /* << 限制视频容器最大宽度 */
   }
   .video-section video {
     width: 100%;       /* 宽度随容器自适应 */
-    max-height: 800px; /* << 如果想让视频高度更小，可改此值 */
+    max-height: 400px; /* << 如果想让视频高度更小，可改此值 */
     object-fit: cover; 
     display: block;    /* 避免行内元素缝隙 */
   }
@@ -199,7 +200,7 @@
     text-align: center;
     margin: 0;
     padding: 0;
-    max-width: 300px; /* << 限制单个块的最大宽度，以便与视频宽度相匹配 */
+    max-width: 400px; /* << 限制单个块的最大宽度，以便与视频宽度相匹配 */
   }
 
   /*
@@ -447,6 +448,353 @@
               </audio>
               <p>CogCM</p>
             </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+<div>
+  <h2 class="title is-3 has-text-centered">DATASET: TCD-TIMIT + NTCD-TIMIT</h2>
+    <h2 class="title is-4 has-text-centered">
+      Sample 1
+    </h2>
+    <div class="item">
+      <!-- 左侧：视频部分 -->
+        <div class="video-section">
+          <video controls>
+            <source src="static/examples/TCD/LR_15F_straightcam_sx347_snr_-5dB_noisy.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Noisy Video</p>
+        </div>
+        <!-- 右侧：三对“图片 + 音频”水平排列 -->
+        <div class="pairs-container">
+          <div class="pair-item">
+            <img src="static/examples/TCD/LR_15F_straightcam_sx347_snr_-5dB_noisy.png" alt="Spec 1">
+            <audio controls>
+              <source src="static/examples/TCD/LR_15F_straightcam_sx347_snr_-5dB_noisy.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Noisy Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/TCD/LR_15F_straightcam_sx347_clean.png" alt="Spec 2">
+            <audio controls>
+              <source src="static/examples/TCD/LR_15F_straightcam_sx347_clean.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Clean Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/TCD/LR_15F_straightcam_sx347_snr_-5dB_BMVC_enhanced_spec.png" alt="Spec 3">
+            <audio controls>
+              <source src="static/examples/TCD/LR_15F_straightcam_sx347_snr_-5dB_BMVC_enhanced.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>DualAVSE</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/TCD/LR_15F_straightcam_sx347_snr_-5dB_CogCM_enhanced_spec.png" alt="Spec 4">
+            <audio controls>
+              <source src="static/examples/TCD/LR_15F_straightcam_sx347_snr_-5dB_CogCM_enhanced.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>CogCM</p>
+          </div>
+        </div>
+      </div>
+    <h2 class="title is-4 has-text-centered">
+      Sample 2
+    </h2>
+    <div class="item">
+      <!-- 左侧：视频部分 -->
+        <div class="video-section">
+          <video controls>
+            <source src="static/examples/TCD/Street_08F_straightcam_sa1_snr_-5dB_noisy.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Noisy Video</p>
+        </div>
+        <!-- 右侧：三对“图片 + 音频”水平排列 -->
+        <div class="pairs-container">
+          <div class="pair-item">
+            <img src="static/examples/TCD/Street_08F_straightcam_sa1_snr_-5dB_noisy.png" alt="Spec 1">
+            <audio controls>
+              <source src="static/examples/TCD/Street_08F_straightcam_sa1_snr_-5dB_noisy.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Noisy Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/TCD/Street_08F_straightcam_sa1_clean.png" alt="Spec 2">
+            <audio controls>
+              <source src="static/examples/TCD/Street_08F_straightcam_sa1_clean.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Clean Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/TCD/Street_08F_straightcam_sa1_snr_-5dB_BMVC_enhanced_spec.png" alt="Spec 3">
+            <audio controls>
+              <source src="static/examples/TCD/Street_08F_straightcam_sa1_snr_-5dB_BMVC_enhanced.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>DualAVSE</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/TCD/Street_08F_straightcam_sa1_snr_-5dB_CogCM_enhanced_spec.png" alt="Spec 4">
+            <audio controls>
+              <source src="static/examples/TCD/Street_08F_straightcam_sa1_snr_-5dB_CogCM_enhanced.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>CogCM</p>
+          </div>
+        </div>
+      </div>
+    
+    <h2 class="title is-4 has-text-centered">
+      Sample 3
+    </h2>
+    <div class="item">
+      <!-- 左侧：视频部分 -->
+        <div class="video-section">
+          <video controls>
+            <source src="static/examples/TCD/Cafe_18M_straightcam_sx209_snr_-5dB_noisy.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Noisy Video</p>
+        </div>
+        <!-- 右侧：三对“图片 + 音频”水平排列 -->
+        <div class="pairs-container">
+          <div class="pair-item">
+            <img src="static/examples/TCD/Cafe_18M_straightcam_sx209_snr_-5dB_noisy.png" alt="Spec 1">
+            <audio controls>
+              <source src="static/examples/TCD/Cafe_18M_straightcam_sx209_snr_-5dB_noisy.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Noisy Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/TCD/Cafe_18M_straightcam_sx209_clean.png" alt="Spec 2">
+            <audio controls>
+              <source src="static/examples/TCD/Cafe_18M_straightcam_sx209_clean.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Clean Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/TCD/Cafe_18M_straightcam_sx209_snr_-5dB_BMVC_enhanced_spec.png" alt="Spec 3">
+            <audio controls>
+              <source src="static/examples/TCD/Cafe_18M_straightcam_sx209_snr_-5dB_BMVC_enhanced.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>DualAVSE</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/TCD/Cafe_18M_straightcam_sx209_snr_-5dB_CogCM_enhanced_spec.png" alt="Spec 4">
+            <audio controls>
+              <source src="static/examples/TCD/Cafe_18M_straightcam_sx209_snr_-5dB_CogCM_enhanced.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>CogCM</p>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+<div>
+  <h2 class="title is-3 has-text-centered">DATASET: GRID + CHiME3</h2>
+    <h2 class="title is-4 has-text-centered">
+      Sample 1
+    </h2>
+    <div class="item">
+      <!-- 左侧：视频部分 -->
+        <div class="video-section">
+          <video controls>
+            <source src="static/examples/GRID/s12_brwz9p_snr_-5dB_noisy.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Noisy Video</p>
+        </div>
+        <!-- 右侧：三对“图片 + 音频”水平排列 -->
+        <div class="pairs-container">
+          <div class="pair-item">
+            <img src="static/examples/GRID/s12_brwz9p_snr_-5dB_noisy.png" alt="Spec 1">
+            <audio controls>
+              <source src="static/examples/GRID/s12_brwz9p_snr_-5dB_noisy.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Noisy Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/GRID/s12_brwz9p_clean.png" alt="Spec 2">
+            <audio controls>
+              <source src="static/examples/GRID/s12_brwz9p_clean.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Clean Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/GRID/s12_brwz9p_snr_-5dB_BMVC_enhanced_spec.png" alt="Spec 3">
+            <audio controls>
+              <source src="static/examples/GRID/s12_brwz9p_snr_-5dB_BMVC_enhanced.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>DualAVSE</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/GRID/s12_brwz9p_snr_-5dB_CogCM_enhanced_spec.png" alt="Spec 4">
+            <audio controls>
+              <source src="static/examples/GRID/s12_brwz9p_snr_-5dB_CogCM_enhanced.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>CogCM</p>
+          </div>
+        </div>
+      </div>
+    <h2 class="title is-4 has-text-centered">
+      Sample 2
+    </h2>
+    <div class="item">
+      <!-- 左侧：视频部分 -->
+        <div class="video-section">
+          <video controls>
+            <source src="static/examples/GRID/s12_bbid7n_snr_-5dB_noisy.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Noisy Video</p>
+        </div>
+        <!-- 右侧：三对“图片 + 音频”水平排列 -->
+        <div class="pairs-container">
+          <div class="pair-item">
+            <img src="static/examples/GRID/s12_bbid7n_snr_-5dB_noisy.png" alt="Spec 1">
+            <audio controls>
+              <source src="static/examples/GRID/s12_bbid7n_snr_-5dB_noisy.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Noisy Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/GRID/s12_bbid7n_clean.png" alt="Spec 2">
+            <audio controls>
+              <source src="static/examples/GRID/s12_bbid7n_clean.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Clean Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/GRID/s12_bbid7n_snr_-5dB_BMVC_enhanced_spec.png" alt="Spec 3">
+            <audio controls>
+              <source src="static/examples/GRID/s12_bbid7n_snr_-5dB_BMVC_enhanced.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>DualAVSE</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/GRID/s12_bbid7n_snr_-5dB_CogCM_enhanced_spec.png" alt="Spec 4">
+            <audio controls>
+              <source src="static/examples/GRID/s12_bbid7n_snr_-5dB_CogCM_enhanced.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>CogCM</p>
+          </div>
+        </div>
+      </div>
+    
+    <h2 class="title is-4 has-text-centered">
+      Sample 3
+    </h2>
+    <div class="item">
+      <!-- 左侧：视频部分 -->
+        <div class="video-section">
+          <video controls>
+            <source src="static/examples/GRID/s1_bgwo4p_snr_-5dB_noisy.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Noisy Video</p>
+        </div>
+        <!-- 右侧：三对“图片 + 音频”水平排列 -->
+        <div class="pairs-container">
+          <div class="pair-item">
+            <img src="static/examples/GRID/s1_bgwo4p_snr_-5dB_noisy.png" alt="Spec 1">
+            <audio controls>
+              <source src="static/examples/GRID/s1_bgwo4p_snr_-5dB_noisy.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Noisy Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/GRID/s1_bgwo4p_clean.png" alt="Spec 2">
+            <audio controls>
+              <source src="static/examples/GRID/s1_bgwo4p_clean.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Clean Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/GRID/s1_bgwo4p_snr_-5dB_BMVC_enhanced_spec.png" alt="Spec 3">
+            <audio controls>
+              <source src="static/examples/GRID/s1_bgwo4p_snr_-5dB_BMVC_enhanced.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>DualAVSE</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/GRID/s1_bgwo4p_snr_-5dB_CogCM_enhanced_spec.png" alt="Spec 4">
+            <audio controls>
+              <source src="static/examples/GRID/s1_bgwo4p_snr_-5dB_CogCM_enhanced.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>CogCM</p>
+          </div>
+        </div>
+      </div>
+    <h2 class="title is-4 has-text-centered">
+      Sample 4
+    </h2>
+    <div class="item">
+      <!-- 左侧：视频部分 -->
+        <div class="video-section">
+          <video controls>
+            <source src="static/examples/GRID/s1_bbws8n_snr_-5dB_noisy.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Noisy Video</p>
+        </div>
+        <!-- 右侧：三对“图片 + 音频”水平排列 -->
+        <div class="pairs-container">
+          <div class="pair-item">
+            <img src="static/examples/GRID/s1_bbws8n_snr_-5dB_noisy.png" alt="Spec 1">
+            <audio controls>
+              <source src="static/examples/GRID/s1_bbws8n_snr_-5dB_noisy.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Noisy Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/GRID/s1_bbws8n_clean.png" alt="Spec 2">
+            <audio controls>
+              <source src="static/examples/GRID/s1_bbws8n_clean.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>Clean Speech</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/GRID/s1_bbws8n_snr_-5dB_BMVC_enhanced_spec.png" alt="Spec 3">
+            <audio controls>
+              <source src="static/examples/GRID/s1_bbws8n_snr_-5dB_BMVC_enhanced.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>DualAVSE</p>
+          </div>
+          <div class="pair-item">
+            <img src="static/examples/GRID/s1_bbws8n_snr_-5dB_CogCM_enhanced_spec.png" alt="Spec 4">
+            <audio controls>
+              <source src="static/examples/GRID/s1_bbws8n_snr_-5dB_CogCM_enhanced.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+            <p>CogCM</p>
           </div>
         </div>
       </div>
